@@ -36,7 +36,7 @@ Also, make sure to Star and Watch this repo on Github so you get alerts whenever
 
 ### Github stuff
 
-Github is free! The best github client is Fork: https://git-fork.com/
+Github is free! The best github client is Fork (In my opinion), it's also free, though it will occasionally ask you to support them: https://git-fork.com/
 
 Once you install fork, you can log into it with your Github account and clone this repository locally
 
