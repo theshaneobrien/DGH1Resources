@@ -2,7 +2,7 @@
 
 You can download this entire project: [Link](https://github.com/theshaneobrien/DGH1Resources/archive/refs/heads/main.zip)
 
-You can find the EnemySpawner script we wrote here: [Link](https://github.com/theshaneobrien/DGH1Resources/blob/main/DG1-Class1-Functions-Lists-Loops/UnityProject/Assets/Scripts/EnemySpawner.cs)
+You can find the EnemySpawner script we wrote here: [Link](https://github.com/theshaneobrien/UnityScriptingResources/blob/main/Class1-Functions-Lists-Loops/UnityProject/Assets/Scripts/EnemySpawner.cs)
 
 You can find a version with detailed comments here: [Link](https://gist.github.com/theshaneobrien/3a240d854d773e9975c01c57ee138f2c)
 
