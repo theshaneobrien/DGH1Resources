@@ -1,4 +1,4 @@
-### DGH1 Resources
+# DGH1 Resources
 
 This is a living document that will be updated with more links as we discover them, feel free to recommend stuff, bonus points (not really) if you use GitHub to do it!
 
@@ -6,10 +6,10 @@ Every folder in this repo is something we covered in a particular class, make su
 
 You can clone this repo and run the scenes we made too!
 
-Also, make sure to Star and Follow this repo on Github so you get alerts whenever we commit to it.
+Also, make sure to Star and Watch this repo on Github so you get alerts whenever we commit to it.
 
 ## Useful links:
-# W3Schools
+### W3Schools
 1. [C# Variables](https://www.w3schools.com/cs/cs_variables.php)
 2. [Data Types](https://www.w3schools.com/cs/cs_variables.php)
 3. [Operators](https://www.w3schools.com/cs/cs_variables.php)
@@ -19,7 +19,7 @@ Also, make sure to Star and Follow this repo on Github so you get alerts wheneve
 7. [Functions / Methods](https://www.w3schools.com/cs/cs_conditions.php)
 8. [Access Modifiers](https://www.w3schools.com/cs/cs_access_modifiers.php)
 
-# Unity Docs
+### Unity Docs
 1. [Unity User Manual](https://docs.unity3d.com/Manual/index.html)
 2. [Unity Scripting Reference](https://docs.unity3d.com/ScriptReference/index.html)
 3. [Creating and Using Scripts](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html)
@@ -30,6 +30,12 @@ Also, make sure to Star and Follow this repo on Github so you get alerts wheneve
 8. [Serialize Field](https://docs.unity3d.com/ScriptReference/SerializeField.html)
 9. [Random.Range](https://docs.unity3d.com/ScriptReference/Random.Range.html)
 
-# Various
+### Various
 1. [Lists](https://www.tutorialsteacher.com/csharp/csharp-list)
 2. [Scope](https://www.tutorialsteacher.com/articles/variable-scopes-in-csharp)
+
+### Github stuff
+
+Github is free! The best github client is Fork: https://git-fork.com/
+
+Once you install fork, you can log into it with your Github account and clone this repository locally
