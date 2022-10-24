@@ -51,5 +51,6 @@ In Fork, click "File" the "Clone"
 4. Paste the git repo URL into the Repository URL field
 5. Set the folder you wish to clone your repo to on your machine
 6. Click Clone!
+![Image of the above](https://github.com/theshaneobrien/DGH1Resources/blob/f76922f9607e48bb46652848617e48a9757e1893/ReadmeImages/Fork3.jpg "1")
 
 Whenever you want to update your local version of the repository, you can click the "Pull" button in Fork!
