@@ -1,4 +1,4 @@
-# DGH1 Resources
+# Unity Resources
 
 This is a living document that will be updated with more links as we discover them, feel free to recommend stuff, bonus points (not really) if you use GitHub to do it!
 
