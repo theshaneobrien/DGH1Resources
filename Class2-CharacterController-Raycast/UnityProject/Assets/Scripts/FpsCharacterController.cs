@@ -12,10 +12,8 @@ public class FpsCharacterController : MonoBehaviour
     [SerializeField] private float turnRateX;
     [SerializeField] private float turnRateY;
 
-    private float mouseXDelta;
-    private float mouseYDelta;
-    private float mouseXPosLastFrame;
-    private float mouseYPosLastFrame;
+    private float mouseXInput;
+    private float mouseYInput;
 
     private float walkSpeed = 5f;
     private float runSpeed = 10f;
@@ -58,16 +56,16 @@ public class FpsCharacterController : MonoBehaviour
     
     private float CalculateMouseXDelta()
     {
-        mouseXDelta = Input.GetAxis("Mouse X") * turnRateX * Time.deltaTime;
+        mouseXInput = Input.GetAxis("Mouse X") * turnRateX * Time.deltaTime;
 
-        return mouseXDelta;
+        return mouseXInput;
     }
 
     private float CalculateMouseYDelta()
     {
-        mouseYDelta -= Input.GetAxis("Mouse Y") * turnRateY * Time.deltaTime;
+        mouseYInput -= Input.GetAxis("Mouse Y") * turnRateY * Time.deltaTime;
         
-        return mouseYDelta;
+        return mouseYInput;
     }
     
     private void PivotCamera()
@@ -83,7 +81,7 @@ public class FpsCharacterController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        isGrounded = Physics.Raycast(this.transform.position, Vector3.down, 1f, LayerMask.NameToLayer("Ground"));
+        isGrounded = Physics.Raycast(this.transform.position, Vector3.down, 1.005f);
 
         return isGrounded;
     }
@@ -92,6 +90,7 @@ public class FpsCharacterController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.25f, this.transform.position.z);
             characterRb.velocity += new Vector3(0,jumpVelocity,0);
         }
     }
