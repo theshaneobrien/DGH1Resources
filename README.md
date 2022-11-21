@@ -11,12 +11,12 @@ Also, make sure to Star and Watch this repo on Github so you get alerts whenever
 ## Useful links:
 ### W3Schools
 1. [C# Variables](https://www.w3schools.com/cs/cs_variables.php)
-2. [Data Types](https://www.w3schools.com/cs/cs_variables.php)
-3. [Operators](https://www.w3schools.com/cs/cs_variables.php)
+2. [Data Types](https://www.w3schools.com/cs/cs_data_types.php)
+3. [Operators](https://www.w3schools.com/cs/cs_operators.php)
 4. [Booleans](https://www.w3schools.com/cs/cs_booleans.php)
 5. [Conditions and If Statements](https://www.w3schools.com/cs/cs_conditions.php)
-6. [For Loops](https://www.w3schools.com/cs/cs_conditions.php)
-7. [Functions / Methods](https://www.w3schools.com/cs/cs_conditions.php)
+6. [For Loops](https://www.w3schools.com/cs/cs_for_loop.php)
+7. [Functions / Methods](https://www.w3schools.com/cs/cs_methods.php)
 8. [Access Modifiers](https://www.w3schools.com/cs/cs_access_modifiers.php)
 
 ### Unity Docs
@@ -25,7 +25,7 @@ Also, make sure to Star and Watch this repo on Github so you get alerts whenever
 3. [Creating and Using Scripts](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html)
 4. [Variables and the Inspector](https://docs.unity3d.com/Manual/VariablesAndTheInspector.html)
 5. [Instantiating Prefabs](https://docs.unity3d.com/Manual/InstantiatingPrefabs.html)
-6. [Order of Execution for Event Functions](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html)
+6. [Order of Execution for Event Functions](https://docs.unity3d.com/Manual/ExecutionOrder.html)
 7. [Important Classes](https://docs.unity3d.com/Manual/ScriptingImportantClasses.html)
 8. [Serialize Field](https://docs.unity3d.com/ScriptReference/SerializeField.html)
 9. [Random.Range](https://docs.unity3d.com/ScriptReference/Random.Range.html)
