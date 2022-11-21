@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Here is the commented code: https://gist.github.com/theshaneobrien/a193dea6285200846c4b6f04d685367c
 public class Gun : MonoBehaviour
 {
     [SerializeField] private LineRenderer gunAimTracer;
@@ -27,7 +28,6 @@ public class Gun : MonoBehaviour
         {
             if (hitObject.collider != null)
             {
-
                 if (hitObject.collider.name != "Ground")
                 {
                     GameObject.Destroy(hitObject.collider.gameObject);
