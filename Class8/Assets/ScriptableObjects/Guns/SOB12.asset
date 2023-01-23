@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: SOB
   maxAmmoCount: 8
-  reloadTime: 3
-  fireDelay: 0.35
+  reloadTime: 2
+  fireDelay: 0.25
   gunBaseDamage: 10
   gunFireSounds:
   - {fileID: 8300000, guid: 4d8fe9ab74f20e740a7005678b9695c4, type: 3}

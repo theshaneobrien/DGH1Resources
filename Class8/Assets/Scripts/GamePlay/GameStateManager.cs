@@ -16,6 +16,8 @@ public class GameStateManager : MonoBehaviour
 
     [SerializeField] private AudioSource musicSource;
 
+    [SerializeField] private Transform playerTransform;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -73,5 +75,10 @@ public class GameStateManager : MonoBehaviour
         playerWon = true;
         gamePlayUI.DisplayPlayerWonScreen();
         musicSource.Play();
+    }
+
+    public Transform GetPlayerTransform()
+    {
+        return playerTransform;
     }
 }

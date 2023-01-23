@@ -8,9 +8,10 @@ public class EnemyScriptableObject : ScriptableObject
     public string enemyName;
     public string enemyType;
     public string enemyDescription;
-    public int timeSpentIdle;
     public Sprite enemyConversationSprite;
     public int walkSpeed;
+    public int timeSpentIdle;
+    public int maxHealth;
     public AudioClip enemyVoice;
     
 }

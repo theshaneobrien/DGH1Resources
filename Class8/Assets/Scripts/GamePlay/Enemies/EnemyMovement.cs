@@ -44,8 +44,11 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        CheckWaypoint();
-        MoveToWaypoint();
+        if (enemyScript.GetEnemyIsDead() == false)
+        {
+            CheckWaypoint();
+            MoveToWaypoint();
+        }
     }
 
     private void CheckWaypoint()
@@ -61,6 +64,7 @@ public class EnemyMovement : MonoBehaviour
                 timeSpentIdling = timeSpentIdling + Time.deltaTime;
                 if (timeSpentIdling > idleAtWaypointTime)
                 {
+                    Debug.Log("Idling");
                     //When our Timer hits zero, change the waypoint
                     currentWaypointIndex++;
 
@@ -79,8 +83,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void MoveToWaypoint()
     {
+        Debug.Log("Is at waypoint");
         if (enemyAtWaypoint == false)
         {
+            Debug.Log("Not at waypoint");
             Vector3 directionOfTarget = (currentWaypoint - this.transform.position).normalized;
 
             Quaternion calculatedLookRotation = Quaternion.LookRotation(directionOfTarget);

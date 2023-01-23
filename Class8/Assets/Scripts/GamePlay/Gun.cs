@@ -10,7 +10,9 @@ public class Gun : MonoBehaviour
     [SerializeField] private GunScriptableObject gunSO;
 
     private int currentAmmo = 0;
+    
     private float timeSpentReloading = 0;
+    private float timeBetweenShots = 0;
 
     private bool isReloading = false;
 
@@ -20,7 +22,9 @@ public class Gun : MonoBehaviour
         {
             EnableGunReticle();
             DetectInput();
+            
             DoReload();
+            FireDelayCountdown();
         }
     }
 
@@ -37,12 +41,32 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            CheckAmmo();
+            CheckFireDelay();
         }
         
         if (Input.GetButtonDown("Reload"))
         {
             Reload();
+        }
+    }
+    
+    private void CheckFireDelay()
+    {
+        if (timeBetweenShots == 0)
+        {
+            CheckAmmo();
+        }
+    }
+    
+    private void CheckAmmo()
+    {
+        if (currentAmmo > 0)
+        {
+            FireGun();
+        }
+        else
+        {
+            gunSoundSource.PlayOneShot(gunSO.triggerSound);
         }
     }
 
@@ -58,27 +82,30 @@ public class Gun : MonoBehaviour
                 if (hitObject.collider.tag == "Enemy")
                 {
                     //Cause the enemy to take damage
-                    hitObject.collider.GetComponent<Enemy>().Die();
+                    hitObject.collider.GetComponent<EnemyHealth>().TakeDamage(gunSO.gunBaseDamage);
                 }
             }
         }
         
         // This will subtract current ammo by 1
         currentAmmo--;
+        
+        // Now increase our delay between firing
+        timeBetweenShots = gunSO.fireDelay;
     }
-
-    private void CheckAmmo()
+    
+    private void FireDelayCountdown()
     {
-        if (currentAmmo > 0)
+        if (timeBetweenShots <= 0)
         {
-            FireGun();
+            timeBetweenShots = 0;
         }
         else
         {
-            gunSoundSource.PlayOneShot(gunSO.triggerSound);
+            timeBetweenShots -= Time.deltaTime;
         }
     }
-
+    
     private void Reload()
     {
         gunSoundSource.PlayOneShot(gunSO.reloadSound);

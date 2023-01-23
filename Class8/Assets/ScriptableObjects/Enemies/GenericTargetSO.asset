@@ -15,7 +15,8 @@ MonoBehaviour:
   enemyName: 
   enemyType: target
   enemyDescription: 
-  timeSpentIdle: 0
   enemyConversationSprite: {fileID: 0}
   walkSpeed: 0
+  timeSpentIdle: 0
+  maxHealth: 1
   enemyVoice: {fileID: 0}
