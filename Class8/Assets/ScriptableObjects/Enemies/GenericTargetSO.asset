@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GenericTargetSO
   m_EditorClassIdentifier: 
   enemyName: 
-  enemyType: 
+  enemyType: target
   enemyDescription: 
   timeSpentIdle: 0
   enemyConversationSprite: {fileID: 0}

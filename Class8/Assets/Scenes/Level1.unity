@@ -1485,7 +1485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5224809390055635873, guid: 6ffd148bf3d130242b28c215e2d2a705, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5224809390055635873, guid: 6ffd148bf3d130242b28c215e2d2a705, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4008,8 +4008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reticleImage: {fileID: 1470330880}
   gunSoundSource: {fileID: 1436069247}
-  gunSounds:
-  - {fileID: 8300000, guid: a627a0624156a7d41a041a784ab0f84b, type: 3}
+  gunSO: {fileID: 11400000, guid: d65bf372430a05c4083f506db6a9319c, type: 2}
 --- !u!82 &1436069247
 AudioSource:
   m_ObjectHideFlags: 0

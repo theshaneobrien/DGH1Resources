@@ -75,13 +75,12 @@ public class FpsCharacterController : MonoBehaviour
     private float CalculateMouseYDelta()
     {
         mouseYInput -= Input.GetAxis("Mouse Y") * turnRateY * Time.deltaTime;
-        
         return mouseYInput;
     }
     
     private void PivotCamera()
     {
-        cameraPivot.localRotation = Quaternion.Euler(CalculateMouseYDelta(), 0f, 0f);
+        cameraPivot.localRotation = Quaternion.Euler(Mathf.Clamp(CalculateMouseYDelta(), -90.0f, 90.0f), 0f, 0f);
     }
 
     private void RotateCharacter()

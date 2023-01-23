@@ -1,13 +1,18 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 // Here is the commented code: https://gist.github.com/theshaneobrien/a193dea6285200846c4b6f04d685367c
 public class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject reticleImage;
-    
     [SerializeField] private AudioSource gunSoundSource;
+    [SerializeField] private GunScriptableObject gunSO;
 
-    [SerializeField] private AudioClip[] gunSounds;
+    private int currentAmmo = 0;
+    private float timeSpentReloading = 0;
+
+    private bool isReloading = false;
 
     private void Update()
     {
@@ -15,6 +20,7 @@ public class Gun : MonoBehaviour
         {
             EnableGunReticle();
             DetectInput();
+            DoReload();
         }
     }
 
@@ -26,30 +32,71 @@ public class Gun : MonoBehaviour
         }
     }
 
+    //This is happening every single frame
     private void DetectInput()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            FireGun();
-            
-            gunSoundSource.PlayOneShot(gunSounds[0]);
+            CheckAmmo();
+        }
+        
+        if (Input.GetButtonDown("Reload"))
+        {
+            Reload();
         }
     }
 
     private void FireGun()
     {
+        gunSoundSource.PlayOneShot(gunSO.gunFireSounds[Random.Range(0, gunSO.gunFireSounds.Length - 1)]);
+        
         RaycastHit hitObject;
-
         if (Physics.Raycast(this.transform.position, this.transform.forward, out hitObject, 100))
         {
             if (hitObject.collider != null)
             {
                 if (hitObject.collider.tag == "Enemy")
                 {
+                    //Cause the enemy to take damage
                     hitObject.collider.GetComponent<Enemy>().Die();
                 }
             }
         }
         
+        // This will subtract current ammo by 1
+        currentAmmo--;
+    }
+
+    private void CheckAmmo()
+    {
+        if (currentAmmo > 0)
+        {
+            FireGun();
+        }
+        else
+        {
+            gunSoundSource.PlayOneShot(gunSO.triggerSound);
+        }
+    }
+
+    private void Reload()
+    {
+        gunSoundSource.PlayOneShot(gunSO.reloadSound);
+        isReloading = true;
+    }
+
+    private void DoReload()
+    {
+        if (isReloading == true)
+        {
+            timeSpentReloading += Time.deltaTime;
+            if (timeSpentReloading > gunSO.reloadTime)
+            {
+                currentAmmo = gunSO.maxAmmoCount;
+
+                timeSpentReloading = 0;
+                isReloading = false;
+            }
+        }
     }
 }
