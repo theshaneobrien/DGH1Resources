@@ -560,3 +560,4 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/unity,visualstudio,visualstudiocode,rider,monodevelop
 DG1-Class1-Functions-Lists-Loops/UnityProject/.idea
+*/.idea
