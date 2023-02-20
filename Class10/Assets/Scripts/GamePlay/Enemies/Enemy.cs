@@ -41,8 +41,6 @@ public class Enemy : MonoBehaviour
         // Start a particle effect
         // Spawn in a loot chest
 
-        TellEnemyStory();
-
         // We are checking if the rigidbody is null
         if (enemyRb != null)
         {
@@ -60,12 +58,6 @@ public class Enemy : MonoBehaviour
         }
 
         enemyIsDead = true;
-    }
-
-    private void TellEnemyStory()
-    {
-        
-        Debug.Log(enemyDetails.enemyName + " died");
     }
 
     public EnemyScriptableObject GetEnemyDetails()

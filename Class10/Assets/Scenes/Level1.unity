@@ -1011,6 +1011,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3045209271835887770, guid: 19183ade562cd774b884ca3165844b82, type: 3}
+      propertyPath: itemToPickup
+      value: 
+      objectReference: {fileID: 11400000, guid: 67c0a9ce129c8a94a97bed52af8746cb, type: 2}
     - target: {fileID: 3045209271835887773, guid: 19183ade562cd774b884ca3165844b82, type: 3}
       propertyPath: m_Name
       value: ItemPickupTrigger
@@ -4490,6 +4494,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3045209271835887770, guid: 19183ade562cd774b884ca3165844b82, type: 3}
+      propertyPath: itemToPickup
+      value: 
+      objectReference: {fileID: 11400000, guid: bc377c02cab71834f94c2354b30fb051, type: 2}
     - target: {fileID: 3045209271835887773, guid: 19183ade562cd774b884ca3165844b82, type: 3}
       propertyPath: m_Name
       value: ItemPickupTrigger (2)
@@ -4613,7 +4621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reticleImage: {fileID: 1470330880}
   gunSoundSource: {fileID: 1436069247}
-  gunSO: {fileID: 11400000, guid: d65bf372430a05c4083f506db6a9319c, type: 2}
+  gunSO: {fileID: 11400000, guid: 6d722ddd8715dfb4fbba1f25b8103843, type: 2}
 --- !u!82 &1436069247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5485,6 +5493,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3045209271835887770, guid: 19183ade562cd774b884ca3165844b82, type: 3}
+      propertyPath: itemToPickup
+      value: 
+      objectReference: {fileID: 11400000, guid: 67c0a9ce129c8a94a97bed52af8746cb, type: 2}
     - target: {fileID: 3045209271835887773, guid: 19183ade562cd774b884ca3165844b82, type: 3}
       propertyPath: m_Name
       value: ItemPickupTrigger (1)
@@ -5678,6 +5690,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3045209271835887770, guid: 19183ade562cd774b884ca3165844b82, type: 3}
+      propertyPath: itemToPickup
+      value: 
+      objectReference: {fileID: 11400000, guid: 67c0a9ce129c8a94a97bed52af8746cb, type: 2}
     - target: {fileID: 3045209271835887771, guid: 19183ade562cd774b884ca3165844b82, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0

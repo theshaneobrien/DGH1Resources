@@ -20,6 +20,7 @@ public class ItemPickupTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameStateManager.Instance.GetPlayerInventory().AddItem(itemToPickup);
+        //TODO: Check if the gun that is equipped is the same gun for the ammo you just picked up, if so, update the UI, else, don't
         GameStateManager.Instance.GetGamePlayUI().SetTotalAmmoText(GameStateManager.Instance.GetPlayerInventory().GetNumberOfInventoryItems(itemToPickup.itemName) * itemToPickup.amountToPickup);
 
         StartCoroutine(PlaySoundAndDie());

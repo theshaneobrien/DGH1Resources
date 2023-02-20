@@ -12,7 +12,6 @@ public class Gun : MonoBehaviour
     private GamePlayUI gamePlayUI;
 
     private int currentLoadedAmmo = 0;
-    private int currentTotalAmmo = 0;
     
     private float timeSpentReloading = 0;
     private float timeBetweenShots = 0;
@@ -50,11 +49,22 @@ public class Gun : MonoBehaviour
     //This is happening every single frame
     private void DetectInput()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (gunSO.fireType == "semi")
         {
-            CheckFireDelay();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                CheckFireDelay();
+            }
         }
-        
+
+        if (gunSO.fireType == "auto")
+        {
+            if (Input.GetButton("Fire1"))
+            {
+                CheckFireDelay();
+            }
+        }
+
         if (Input.GetButtonDown("Reload"))
         {
             Reload();
@@ -129,13 +139,16 @@ public class Gun : MonoBehaviour
         if (isReloading == true)
         {
             timeSpentReloading += Time.deltaTime;
-            if (timeSpentReloading > gunSO.reloadTime)
+            if (GameStateManager.Instance.GetPlayerInventory().CheckItemExists(gunSO.ammoInventoryItem) >= 0)
             {
-                currentLoadedAmmo = gunSO.maxAmmoCount;
-                GameStateManager.Instance.GetPlayerInventory().RemoveItem(gunSO.ammoInventoryItem);
-                SetGunUIElements();
-                timeSpentReloading = 0;
-                isReloading = false;
+                if (timeSpentReloading > gunSO.reloadTime)
+                {
+                    currentLoadedAmmo = gunSO.maxAmmoCount;
+                    GameStateManager.Instance.GetPlayerInventory().RemoveItem(gunSO.ammoInventoryItem);
+                    SetGunUIElements();
+                    timeSpentReloading = 0;
+                    isReloading = false;
+                }
             }
         }
     }
