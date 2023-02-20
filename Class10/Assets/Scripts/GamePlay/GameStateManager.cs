@@ -8,6 +8,7 @@ public class GameStateManager : MonoBehaviour
     public static GameStateManager Instance { get; private set; }
 
     private GamePlayUI gamePlayUI;
+    private PlayerInventory playerInventory;
 
     public int playerScore = 0;
     private int enemiesAlive = 0;
@@ -34,6 +35,14 @@ public class GameStateManager : MonoBehaviour
     private void Start()
     {
         gamePlayUI = this.GetComponent<GamePlayUI>();
+        playerInventory = this.GetComponent<PlayerInventory>();
+        
+        playerInventory.ClearInventory();
+    }
+
+    public GamePlayUI GetGamePlayUI()
+    {
+        return gamePlayUI;
     }
 
     public int GetEnemiesAlive()
@@ -100,5 +109,10 @@ public class GameStateManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public PlayerInventory GetPlayerInventory()
+    {
+        return playerInventory;
     }
 }

@@ -9,12 +9,23 @@ public class Gun : MonoBehaviour
     [SerializeField] private AudioSource gunSoundSource;
     [SerializeField] private GunScriptableObject gunSO;
 
-    private int currentAmmo = 0;
+    private GamePlayUI gamePlayUI;
+
+    private int currentLoadedAmmo = 0;
+    private int currentTotalAmmo = 0;
     
     private float timeSpentReloading = 0;
     private float timeBetweenShots = 0;
 
     private bool isReloading = false;
+
+    private void Start()
+    {
+        gamePlayUI = GameStateManager.Instance.GetGamePlayUI();
+        
+        gamePlayUI.SetGunNameText(gunSO.gunName);
+        SetGunUIElements();
+    }
 
     private void Update()
     {
@@ -60,7 +71,7 @@ public class Gun : MonoBehaviour
     
     private void CheckAmmo()
     {
-        if (currentAmmo > 0)
+        if (currentLoadedAmmo > 0)
         {
             FireGun();
         }
@@ -88,7 +99,8 @@ public class Gun : MonoBehaviour
         }
         
         // This will subtract current ammo by 1
-        currentAmmo--;
+        currentLoadedAmmo--;
+        SetGunUIElements();
         
         // Now increase our delay between firing
         timeBetweenShots = gunSO.fireDelay;
@@ -119,11 +131,18 @@ public class Gun : MonoBehaviour
             timeSpentReloading += Time.deltaTime;
             if (timeSpentReloading > gunSO.reloadTime)
             {
-                currentAmmo = gunSO.maxAmmoCount;
-
+                currentLoadedAmmo = gunSO.maxAmmoCount;
+                GameStateManager.Instance.GetPlayerInventory().RemoveItem(gunSO.ammoInventoryItem);
+                SetGunUIElements();
                 timeSpentReloading = 0;
                 isReloading = false;
             }
         }
+    }
+
+    private void SetGunUIElements()
+    {
+        gamePlayUI.SetCurrentAmmoAmount(currentLoadedAmmo, gunSO.maxAmmoCount);
+        gamePlayUI.SetTotalAmmoText(GameStateManager.Instance.GetPlayerInventory().GetNumberOfInventoryItems(gunSO.ammoInventoryItem.itemName) * gunSO.ammoInventoryItem.amountToPickup);
     }
 }

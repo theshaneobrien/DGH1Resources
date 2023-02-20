@@ -10,6 +10,7 @@ public class GunScriptableObject : ScriptableObject
     public float reloadTime;
     public float fireDelay;
     public float gunBaseDamage;
+    public InventoryItemScriptableObject ammoInventoryItem;
     
     public AudioClip[] gunFireSounds;
     public AudioClip reloadSound;

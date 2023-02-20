@@ -10,11 +10,15 @@ public class GamePlayUI : MonoBehaviour
     [SerializeField] private Button readyUpButton;
     
     [SerializeField] private TextMeshProUGUI scoreText;
-
     [SerializeField] private TextMeshProUGUI playerWonText;
 
     [SerializeField] private Button restartButton;
     [SerializeField] private Button quitButton;
+    
+    //This is where our equipped weapon variable start
+    [SerializeField] private TextMeshProUGUI gunNameText;
+    [SerializeField] private TextMeshProUGUI currentLoadedAmmoText;
+    [SerializeField] private TextMeshProUGUI currentTotalAmmoText;
 
     private void Update()
     {
@@ -45,5 +49,21 @@ public class GamePlayUI : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+    
+    // This is where our equipped weapon UI Functions start
+    public void SetGunNameText(string gunName)
+    {
+        gunNameText.text = gunName;
+    }
+
+    public void SetCurrentAmmoAmount(int currentAmmo, int maxClipAmmo)
+    {
+        currentLoadedAmmoText.text = currentAmmo.ToString() + "/" + maxClipAmmo.ToString();
+    }
+
+    public void SetTotalAmmoText(int totalAmmoCount)
+    {
+        currentTotalAmmoText.text = totalAmmoCount.ToString();
     }
 }

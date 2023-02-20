@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83f6ee7771563f4c89a0162a2c8213b, type: 3}
   m_Name: SOB12
   m_EditorClassIdentifier: 
-  gunName: SOB
+  gunName: SOB 12
   maxAmmoCount: 8
   reloadTime: 2
   fireDelay: 0.25
   gunBaseDamage: 10
+  ammoInventoryItem: {fileID: 11400000, guid: bc377c02cab71834f94c2354b30fb051, type: 2}
   gunFireSounds:
   - {fileID: 8300000, guid: 4d8fe9ab74f20e740a7005678b9695c4, type: 3}
   - {fileID: 8300000, guid: b81d86ca48502cf48b4cc8a76df40ea0, type: 3}

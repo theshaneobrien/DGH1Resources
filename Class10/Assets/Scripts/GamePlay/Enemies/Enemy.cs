@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
     private void TellEnemyStory()
     {
         
-        Debug.Log(enemyDetails.enemyName + " was a " + enemyDetails.enemyType + " and "  + enemyDetails.enemyDescription);
+        Debug.Log(enemyDetails.enemyName + " died");
     }
 
     public EnemyScriptableObject GetEnemyDetails()
