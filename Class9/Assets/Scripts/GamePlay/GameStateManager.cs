@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 // GameState Manager is just for keeping track of the state of our game
@@ -7,7 +8,7 @@ public class GameStateManager : MonoBehaviour
     public static GameStateManager Instance { get; private set; }
 
     private GamePlayUI gamePlayUI;
-    
+
     public int playerScore = 0;
     private int enemiesAlive = 0;
 
@@ -15,8 +16,8 @@ public class GameStateManager : MonoBehaviour
     private bool playerWon = false;
 
     [SerializeField] private AudioSource musicSource;
-
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private List<Enemy> enemyList = new List<Enemy>();
 
     private void Awake()
     {
@@ -43,8 +44,13 @@ public class GameStateManager : MonoBehaviour
     public void AddToEnemiesAlive(int howManyEnemiesToAdd)
     {
         enemiesAlive = enemiesAlive + howManyEnemiesToAdd;
-        
+
         CheckIfPlayerWon();
+    }
+
+    public void AddToEnemyList(Enemy enemyToAdd)
+    {
+        enemyList.Add(enemyToAdd);
     }
 
     public void SetPlayerIsReady(bool value)
@@ -80,5 +86,19 @@ public class GameStateManager : MonoBehaviour
     public Transform GetPlayerTransform()
     {
         return playerTransform;
+    }
+
+    public void TellAllEnemiesPlayerPos(Enemy enemyMakingTheCall)
+    {
+        foreach (Enemy enemyVar in enemyList)
+        {
+            if (enemyVar != enemyMakingTheCall)
+            {
+                if (enemyVar.GetIsAwarePlayer() == false)
+                {
+                    enemyVar.MakeAwareOfPlayer();
+                }
+            }
+        }
     }
 }

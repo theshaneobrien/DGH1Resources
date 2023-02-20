@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Enemy))]
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private List<Transform> waypoints;
@@ -17,11 +18,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private bool enemyAtWaypoint = false;
 
     private Rigidbody enemyRb;
+    private NavMeshAgent enemyNavAgent;
     private float walkSpeed = 5.0f;
     [SerializeField] private float turnSpeed = 1.0f;
 
     private Transform playerTransform;
-    private bool isChasingPlayer = false;
 
     private Enemy enemyScript;
 
@@ -33,12 +34,15 @@ public class EnemyMovement : MonoBehaviour
     {
         this.enemyRb = this.GetComponent<Rigidbody>();
         this.enemyScript = this.GetComponent<Enemy>();
+        this.enemyNavAgent = this.GetComponent<NavMeshAgent>();
 
         currentWaypointIndex = 0;
         currentWaypoint = waypoints[currentWaypointIndex].position;
+        enemyNavAgent.destination = currentWaypoint;
 
         walkSpeed = enemyScript.GetEnemyDetails().walkSpeed;
         idleAtWaypointTime = enemyScript.GetEnemyDetails().timeSpentIdle;
+        enemyNavAgent.speed = walkSpeed;
     }
 
     // Update is called once per frame
@@ -54,28 +58,38 @@ public class EnemyMovement : MonoBehaviour
     private void CheckWaypoint()
     {
         // Only patrol if we are not chasing the player
-        if (isChasingPlayer == false)
+        if (enemyScript.GetEnemyIsDead() == false)
         {
-            distanceToWaypoint = Vector3.Distance(this.transform.position, currentWaypoint);
-            if (distanceToWaypoint <= acceptableDistanceToWaypoint)
+            if (enemyScript.GetIsAwarePlayer() == false)
             {
-                //We've hit our waypoint. start a timer
-                enemyAtWaypoint = true;
-                timeSpentIdling = timeSpentIdling + Time.deltaTime;
-                if (timeSpentIdling > idleAtWaypointTime)
+                distanceToWaypoint = Vector3.Distance(this.transform.position, currentWaypoint);
+                if (distanceToWaypoint <= acceptableDistanceToWaypoint)
                 {
-                    Debug.Log("Idling");
-                    //When our Timer hits zero, change the waypoint
-                    currentWaypointIndex++;
+                    //We've hit our waypoint. start a timer
+                    enemyScript.GetEnemyAnimator().SetBool("IsWalking", false);
 
-                    if (currentWaypointIndex == waypoints.Count)
+                    enemyAtWaypoint = true;
+                    timeSpentIdling = timeSpentIdling + Time.deltaTime;
+                    if (timeSpentIdling > idleAtWaypointTime)
                     {
-                        currentWaypointIndex = 0;
-                    }
+                        //When our Timer hits zero, change the waypoint
+                        enemyScript.GetEnemyAnimator().SetTrigger("WalkTrigger");
+                        enemyScript.GetEnemyAnimator().SetBool("IsWalking", true);
+                        currentWaypointIndex++;
 
-                    currentWaypoint = waypoints[currentWaypointIndex].position;
-                    timeSpentIdling = 0;
-                    enemyAtWaypoint = false;
+                        if (currentWaypointIndex == waypoints.Count)
+                        {
+                            currentWaypointIndex = 0;
+                        }
+
+                        currentWaypoint = waypoints[currentWaypointIndex].position;
+
+                        //Tell our NavMeshAgent where to go
+                        enemyNavAgent.destination = currentWaypoint;
+
+                        timeSpentIdling = 0;
+                        enemyAtWaypoint = false;
+                    }
                 }
             }
         }
@@ -83,22 +97,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void MoveToWaypoint()
     {
-        Debug.Log("Is at waypoint");
         if (enemyAtWaypoint == false)
         {
-            Debug.Log("Not at waypoint");
-            Vector3 directionOfTarget = (currentWaypoint - this.transform.position).normalized;
-
-            Quaternion calculatedLookRotation = Quaternion.LookRotation(directionOfTarget);
-
-            Quaternion lerpRotation = Quaternion.Lerp(this.transform.rotation, calculatedLookRotation,
-                Time.deltaTime * turnSpeed);
-
-            Vector3 filteredLookRotation = new Vector3(0.0f, lerpRotation.eulerAngles.y, 0.0f);
-
-            this.transform.rotation = Quaternion.Euler(filteredLookRotation);
-
-            enemyRb.velocity = transform.forward * walkSpeed;
+            
         }
     }
 
@@ -106,6 +107,11 @@ public class EnemyMovement : MonoBehaviour
     {
         playerTransform = target;
         currentWaypoint = playerTransform.position;
-        isChasingPlayer = true;
+        enemyNavAgent.destination = currentWaypoint;
+    }
+
+    public void DisableNavMeshAgent()
+    {
+        enemyNavAgent.enabled = false;
     }
 }

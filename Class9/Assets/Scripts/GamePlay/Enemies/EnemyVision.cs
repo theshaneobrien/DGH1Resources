@@ -9,7 +9,7 @@ public class EnemyVision : MonoBehaviour
     [SerializeField] private float visionRadius = 2;
     [SerializeField] private float visionDistance = 15;
 
-    private EnemyMovement enemyMovement;
+    private Enemy enemyScript;
 
     private bool playerInVisualRange = false;
 
@@ -18,7 +18,7 @@ public class EnemyVision : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        this.enemyMovement = this.GetComponent<EnemyMovement>();
+        this.enemyScript = this.GetComponent<Enemy>();
     }
 
     // Update is called once per frame
@@ -54,7 +54,11 @@ public class EnemyVision : MonoBehaviour
                 // We need to set the player gameobjects tag to "Player" in the Unity Inspector
                 if (objectOurRayHit.collider.CompareTag("Player"))
                 {
-                    enemyMovement.TargetPlayer(objectOurRayHit.transform);
+                    //enemyMovement.TargetPlayer(objectOurRayHit.transform);
+                    if (enemyScript.GetIsAwarePlayer() == false)
+                    {
+                        enemyScript.MakeAwareOfPlayer();
+                    }
                 }
             }
         }

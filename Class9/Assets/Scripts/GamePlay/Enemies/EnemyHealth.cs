@@ -26,7 +26,10 @@ public class EnemyHealth : MonoBehaviour
             }
             else
             {
-                enemyScript.GetEnemyMovementComponent().TargetPlayer(GameStateManager.Instance.GetPlayerTransform());
+                if (enemyScript.GetIsAwarePlayer() == false)
+                {
+                    enemyScript.MakeAwareOfPlayer();
+                }
             }
         }
     }
