@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 // You can view the fully commented code here: https://gist.github.com/theshaneobrien/741aed79faae7d7d22b9cc29f39bee8d
 public class GamePlayUI : MonoBehaviour
@@ -16,7 +17,8 @@ public class GamePlayUI : MonoBehaviour
     [SerializeField] private Button quitButton;
     
     //This is where our equipped weapon variable start
-    [SerializeField] private TextMeshProUGUI gunNameText;
+    [FormerlySerializedAs("gunNameText")] [SerializeField] private TextMeshProUGUI weaponNameText;
+    [SerializeField] private Image equippedWeaponIcon;
     [SerializeField] private TextMeshProUGUI currentLoadedAmmoText;
     [SerializeField] private TextMeshProUGUI currentTotalAmmoText;
 
@@ -52,9 +54,14 @@ public class GamePlayUI : MonoBehaviour
     }
     
     // This is where our equipped weapon UI Functions start
-    public void SetGunNameText(string gunName)
+    public void SetWeaponNameText(string gunName)
     {
-        gunNameText.text = gunName;
+        weaponNameText.text = gunName;
+    }
+    
+    public void SetWeaponUIImage(Sprite weaponImageToSet)
+    {
+        equippedWeaponIcon.sprite = weaponImageToSet;
     }
 
     public void SetCurrentAmmoAmount(int currentAmmo, int maxClipAmmo)
@@ -66,4 +73,5 @@ public class GamePlayUI : MonoBehaviour
     {
         currentTotalAmmoText.text = totalAmmoCount.ToString();
     }
+    
 }

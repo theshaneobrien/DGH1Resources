@@ -9,6 +9,7 @@ public class GameStateManager : MonoBehaviour
 
     private GamePlayUI gamePlayUI;
     private PlayerInventory playerInventory;
+    [SerializeField] private WeaponSystem playerEquippedWeapon;
 
     public int playerScore = 0;
     private int enemiesAlive = 0;
@@ -114,5 +115,10 @@ public class GameStateManager : MonoBehaviour
     public PlayerInventory GetPlayerInventory()
     {
         return playerInventory;
+    }
+
+    public WeaponSystem GetPlayerWeapon()
+    {
+        return playerEquippedWeapon;
     }
 }

@@ -9,6 +9,11 @@ public class PlayerInventory : MonoBehaviour
     public void AddItem(InventoryItemScriptableObject itemToAdd)
     {
         playerInvSO.GetFullInventory().Add(itemToAdd);
+
+        if (itemToAdd.itemType == "gun")
+        {
+            GameStateManager.Instance.GetPlayerWeapon().CheckWhetherToAddWeaponOrAmmo(itemToAdd.weaponToEquip);
+        }
     }
 
     public void RemoveItem(InventoryItemScriptableObject itemToRemove)

@@ -12,4 +12,5 @@ public class InventoryItemScriptableObject : ScriptableObject
     public int amountToPickup;
     public int maxAmount;
     public AudioClip pickupSound;
+    public WeaponScriptableObject weaponToEquip;
 }

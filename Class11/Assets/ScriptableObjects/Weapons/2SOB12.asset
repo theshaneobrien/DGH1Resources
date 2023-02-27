@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d83f6ee7771563f4c89a0162a2c8213b, type: 3}
-  m_Name: SOB12
+  m_Name: 2SOB12
   m_EditorClassIdentifier: 
-  gunName: SOB 12
+  weaponName: SOB 12
+  weaponArraySlot: 1
   maxAmmoCount: 8
   reloadTime: 2
   fireDelay: 0.25
-  gunBaseDamage: 10
+  weaponBaseDamage: 10
   ammoInventoryItem: {fileID: 11400000, guid: bc377c02cab71834f94c2354b30fb051, type: 2}
   fireType: semi
-  gunFireSounds:
+  weaponIcon: {fileID: 21300000, guid: 8228c6ec538d02b449d0a8d338bb9a95, type: 3}
+  weaponFireSounds:
   - {fileID: 8300000, guid: 4d8fe9ab74f20e740a7005678b9695c4, type: 3}
   - {fileID: 8300000, guid: b81d86ca48502cf48b4cc8a76df40ea0, type: 3}
   - {fileID: 8300000, guid: ed5a9fcffd6aa834ab0de6037c2ee669, type: 3}

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055de2126d9f91540a43790e4d9b6d8d, type: 3}
   m_Name: Ak27Ammo
   m_EditorClassIdentifier: 
-  itemName: AK27
+  itemName: AK27Ammo
   itemDescription: This is ammo for the default Gun
   itemType: ammo
   itemSprite: {fileID: 0}
   amountToPickup: 30
   maxAmount: 120
   pickupSound: {fileID: 8300000, guid: 2858ed88c0faaa3448f6a2d367965076, type: 3}
+  weaponToEquip: {fileID: 0}

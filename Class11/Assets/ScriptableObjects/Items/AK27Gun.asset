@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 055de2126d9f91540a43790e4d9b6d8d, type: 3}
-  m_Name: SOBAmmo
+  m_Name: AK27Gun
   m_EditorClassIdentifier: 
-  itemName: SOB 12 Ammo
-  itemDescription: This is ammo for the default Gun
-  itemType: ammo
+  itemName: AK27
+  itemDescription: This is a fully automatic rifle
+  itemType: gun
   itemSprite: {fileID: 0}
-  amountToPickup: 8
-  maxAmount: 80
+  amountToPickup: 1
+  maxAmount: 1
   pickupSound: {fileID: 8300000, guid: 2858ed88c0faaa3448f6a2d367965076, type: 3}
-  weaponToEquip: {fileID: 0}
+  weaponToEquip: {fileID: 11400000, guid: 6d722ddd8715dfb4fbba1f25b8103843, type: 2}

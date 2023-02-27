@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d83f6ee7771563f4c89a0162a2c8213b, type: 3}
-  m_Name: AK27
+  m_Name: 3AK27
   m_EditorClassIdentifier: 
-  gunName: Ak27
+  weaponName: Ak27
+  weaponArraySlot: 2
   maxAmmoCount: 30
   reloadTime: 3
   fireDelay: 0.15
-  gunBaseDamage: 25
+  weaponBaseDamage: 25
   ammoInventoryItem: {fileID: 11400000, guid: 67c0a9ce129c8a94a97bed52af8746cb, type: 2}
   fireType: auto
-  gunFireSounds:
+  weaponIcon: {fileID: 21300000, guid: eb8385fdc40789440a550f1eb25169e8, type: 3}
+  weaponFireSounds:
   - {fileID: 8300000, guid: 4d8fe9ab74f20e740a7005678b9695c4, type: 3}
   - {fileID: 8300000, guid: b81d86ca48502cf48b4cc8a76df40ea0, type: 3}
   - {fileID: 8300000, guid: ed5a9fcffd6aa834ab0de6037c2ee669, type: 3}
