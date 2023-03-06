@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055de2126d9f91540a43790e4d9b6d8d, type: 3}
+  m_Name: SOB12Gun
+  m_EditorClassIdentifier: 
+  itemName: SOB 12
+  itemDescription: This is a pistol that holds 8 rounds
+  itemType: gun
+  itemSprite: {fileID: 21300000, guid: 8228c6ec538d02b449d0a8d338bb9a95, type: 3}
+  amountToPickup: 1
+  maxAmount: 1
+  pickupSound: {fileID: 8300000, guid: 2858ed88c0faaa3448f6a2d367965076, type: 3}
+  weaponToEquip: {fileID: 11400000, guid: d65bf372430a05c4083f506db6a9319c, type: 2}
