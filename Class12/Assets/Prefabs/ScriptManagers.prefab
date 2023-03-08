@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8530921388285463823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8530921388285463821}
+  - component: {fileID: 8530921388285463819}
+  - component: {fileID: 8530921388285463820}
+  - component: {fileID: 8530921388285463818}
+  m_Layer: 0
+  m_Name: ScriptManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8530921388285463821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530921388285463823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8530921388285463819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530921388285463823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e638b17093ff7498af38970b55a515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerEquippedWeapon: {fileID: 0}
+  playerScore: 0
+  musicSource: {fileID: 0}
+  playerTransform: {fileID: 0}
+  enemyList: []
+--- !u!114 &8530921388285463820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530921388285463823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64b63cb1a895d944a6f034a33013994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  readyUpButton: {fileID: 0}
+  scoreText: {fileID: 0}
+  playerWonText: {fileID: 0}
+  restartButton: {fileID: 0}
+  quitButton: {fileID: 0}
+  weaponNameText: {fileID: 0}
+  equippedWeaponIcon: {fileID: 0}
+  currentLoadedAmmoText: {fileID: 0}
+  currentTotalAmmoText: {fileID: 0}
+--- !u!114 &8530921388285463818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530921388285463823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ce6b30bd7add945b12f90c8564b02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInvSO: {fileID: 11400000, guid: 8bfa4b6e3b4fe6442a7a0dcff7359e01, type: 2}
