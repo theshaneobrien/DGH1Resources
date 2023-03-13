@@ -84,10 +84,20 @@ public class Enemy : MonoBehaviour
     {
         if (enemyIsDead == false)
         {
+            Debug.Log("Making aware of player");
             isAwareOfPlayer = true;
             enemyMovementScript.TargetPlayer(GameStateManager.Instance.GetPlayerTransform());
             GameStateManager.Instance.TellAllEnemiesPlayerPos(this);
         }
+    }
+
+    public void LostVisualOnPlayer()
+    {
+        
+        Debug.Log("Lost Sight of Player");
+        
+        isAwareOfPlayer = false;
+        enemyMovementScript.LostSightOfPlayer();
     }
 
     public Animator GetEnemyAnimator()

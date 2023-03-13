@@ -19,8 +19,10 @@ public class EnemyVisionTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
             enemyVision.ChangePlayerInVisualRange(false);
             enemyVision.SetPlayerTransform(null);
+            enemyVision.GetEnemyScript().LostVisualOnPlayer();
         }
     }
 }

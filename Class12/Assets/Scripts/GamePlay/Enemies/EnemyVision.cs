@@ -60,7 +60,16 @@ public class EnemyVision : MonoBehaviour
                         enemyScript.MakeAwareOfPlayer();
                     }
                 }
+                else
+                {
+                    enemyScript.LostVisualOnPlayer();
+                }
             }
         }
+    }
+
+    public Enemy GetEnemyScript()
+    {
+        return enemyScript;
     }
 }
